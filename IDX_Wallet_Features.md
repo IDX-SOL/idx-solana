@@ -21,3 +21,5 @@ Export all wallet data in one click for secure backups, seamless migration, and 
 
 ### Close Token Account Feature
 Reclaim unused network rent instantly. IDX Wallet includes a dedicated feature to close out empty or unused SPL token accounts, allowing you to clean up your wallet and recover locked SOL seamlessly. Maintain a streamlined portfolio while maximizing your capital efficiency within the decentralized finance infrastructure.
+
+https://www.idxwallet.net
