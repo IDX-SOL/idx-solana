@@ -1,203 +1,115 @@
-# IDX AutoBot Next (Frontend)
+# IDX Tools and Bot - Feature Overview
 
-IDX AutoBot Next is the frontend application for the IDX Solana tools ecosystem.  
-It is a Next.js App Router web app that gives users a single UI to access token, liquidity, bot, and metadata tools.
+This document explains the key features of the IDX tools ecosystem and bot modules across the IDX projects.
 
-This README is focused only on the frontend codebase (`IdxAutoBotNext`).
+## Platform Goal
 
-## What This Frontend Provides
+IDX provides a single Solana-focused toolkit for:
+- token launch and lifecycle management
+- liquidity setup and control
+- automated trading/engagement bots
+- token operations and safety actions
+- operational dashboards for execution and monitoring
 
-The frontend delivers:
+## Core Feature Groups
 
-- a unified dashboard-style interface for all IDX tools
-- wallet-connected Solana workflows
-- tool-specific pages for token creation, burn, liquidity, metadata, and automation
-- authenticated/gated user experience where required
-- realtime and analytics-enabled product experience
+## 1) Token Creation and Setup
 
-## Tool Modules in the Frontend
+Features:
+- **Create SPL Token** for standard Solana token launches.
+- **Create Token-2022 (Tax)** for advanced token behavior and tax-enabled designs.
+- **Create Token Pro workflows** to reduce launch friction with guided, repeatable steps.
 
-Primary tools visible in navigation:
+Why it helps:
+- Faster launch flow from idea to deploy.
+- Better consistency for teams launching multiple tokens.
 
-- Dashboard
-- Volume Bot
-- Holders Maker
-- Reaction Booster
-- Token Burn
-- Bulk Sender (Solana)
-- Update Token Metadata
-- Create Token Pro
-  - Create SPL Token
-  - Create Token-2022 (Tax)
-- Create Liquidity Pool
-- Manage Liquidity
-  - Add Liquidity
-  - Remove Liquidity
-- Revoke Authorities
-  - Revoke Mint Authority
-  - Revoke Freeze Authority
-- Liquidity Simulator
+## 2) Metadata and Token Management
 
-These modules are represented by frontend routes and wired into backend APIs/services.
+Features:
+- **Update Token Metadata** (name, symbol, images, and metadata fields) after launch.
+- **Token lifecycle operations** connected to backend APIs for reliable updates.
 
-## Tools and USP
+Why it helps:
+- Keeps project branding and token information current without relaunching.
 
-- **Dashboard** - Central control view for platform activity.  
-  **USP:** One-screen visibility across token, bot, and liquidity workflows.
-- **Volume Bot** - Automates trading activity patterns around a token.  
-  **USP:** Maintains momentum with less manual intervention.
-- **Holders Maker** - Supports holder distribution and holder activity patterns.  
-  **USP:** Improves holder-side ecosystem depth for newer tokens.
-- **Reaction Booster** - Drives engagement-style reaction workflows.  
-  **USP:** Adds social momentum signals that support token attention.
-- **Token Burn** - Executes and tracks token burn operations.  
-  **USP:** Deflation actions in a simple, traceable flow.
-- **Bulk Sender (Solana)** - Sends assets to many wallets in one operation.  
-  **USP:** Replaces repetitive one-by-one transfer processes.
-- **Update Token Metadata** - Updates token metadata and related media fields.  
-  **USP:** Fast post-launch updates without rebuilding token setup.
-- **Create Token Pro** - End-to-end token launch workflow.  
-  **USP:** Unified professional flow for quick and repeatable launches.
-  - **Create SPL Token**  
-    **USP:** Fast standard SPL token creation.
-  - **Create Token-2022 (Tax)**  
-    **USP:** Advanced Token-2022 creation path for tax-enabled designs.
-- **Create Liquidity Pool** - Sets up liquidity pool infrastructure.  
-  **USP:** Reduces launch friction by keeping setup in one workflow.
-- **Manage Liquidity** - Operates liquidity positions after launch.  
-  **USP:** Active liquidity control without leaving the platform.
-  - **Add Liquidity**  
-    **USP:** Improves tradability and market depth.
-  - **Remove Liquidity**  
-    **USP:** Flexible capital and risk management.
-- **Revoke Authorities** - Removes sensitive token authorities.  
-  **USP:** Improves trust by reducing centralized control.
-  - **Revoke Mint Authority**  
-    **USP:** Prevents any future token minting.
-  - **Revoke Freeze Authority**  
-    **USP:** Prevents future account freezing power.
-- **Liquidity Simulator** - Simulates liquidity behavior before execution.  
-  **USP:** Test-before-action to reduce expensive on-chain mistakes.
+## 3) Liquidity Tools
 
-## Core Layout Architecture
+Features:
+- **Create Liquidity Pool** to initialize market liquidity.
+- **Manage Liquidity** with:
+  - add liquidity
+  - remove liquidity
+- **Liquidity Simulator** to preview behavior before executing on-chain operations.
 
-Global app shell is defined in `src/app/layout.js` and includes:
+Why it helps:
+- Improves tradability and market depth.
+- Gives operators more control over capital and risk.
 
-- global styles and font setup
-- SEO metadata and social metadata
-- JSON-LD structured data for IDX branding
-- Google Tag Manager injection
-- `ErrorBoundary` wrapper
-- `ReduxProvider` for global state
-- persistent `Sidebar`
-- `MainContent` wrapper for all page content
-- global `SupportButton`
+## 4) Token Safety and Trust Controls
 
-This structure gives a consistent UI across all tool pages.
+Features:
+- **Revoke Mint Authority** to prevent future minting.
+- **Revoke Freeze Authority** to remove future freeze permissions.
+- **Token Burn** to reduce circulating supply in a traceable way.
 
-## Navigation System (Sidebar)
+Why it helps:
+- Builds user trust through reduced centralized control.
+- Supports post-launch tokenomics actions.
 
-`src/components/layout/Sidebar.jsx` manages product navigation behavior:
+## 5) Bot and Growth Automation
 
-- desktop collapse/expand behavior
-- mobile open/close overlay behavior
-- route-aware active highlighting
-- nested menus for grouped tools
-- auto-expand on child route load
-- authentication-aware dashboard access flow
+Features:
+- **Volume Bot** to automate trading activity patterns.
+- **Holders Maker** to support holder distribution/activity patterns.
+- **Reaction Booster** to drive social/engagement-oriented momentum.
 
-State is managed through Redux slice actions such as:
+Why it helps:
+- Reduces manual operations.
+- Helps maintain activity and visibility around token ecosystems.
 
-- `setIsCollapsed`
-- `setIsHydrated`
-- `setIsMobileSidebarOpen`
+## 6) Dashboard and Operational UX
 
-## State Management and Client Architecture
+Features:
+- Unified dashboard-style UI across all tools.
+- Sidebar-based navigation with grouped modules and nested actions.
+- Realtime-friendly product experience for live activity tracking and actions.
 
-The frontend uses Redux Toolkit and client-side hooks for app behavior:
+Why it helps:
+- One interface for token, liquidity, and bot workflows.
+- Faster operator decisions with centralized visibility.
 
-- global UI state (sidebar, shared controls)
-- authentication/session flow integration
-- wallet and transaction interaction state
-- modular hooks for auth modal, onboarding, notifications, sockets
+## 7) Wallet and Security-Oriented Experience
 
-This keeps cross-page behavior predictable and avoids route-by-route state duplication.
+Features:
+- Wallet-connected Solana workflows.
+- Route guarding and authenticated views where needed.
+- Security headers and environment-based configuration patterns.
+- No private key handling in frontend application code.
 
-## Backend Integration Model
+Why it helps:
+- Safer operator experience.
+- Cleaner separation between frontend UX and sensitive backend logic.
 
-The frontend is not standalone logic; it is an interface over backend services.
+## Typical End-to-End Workflow
 
-It integrates with backend domains such as:
+1. Create a token (SPL or Token-2022).
+2. Configure metadata.
+3. Create and manage liquidity.
+4. Run bot modules (volume/holders/reaction) for activity support.
+5. Apply safety actions (burn, revoke authorities) as needed.
+6. Monitor and iterate from dashboard/live activity views.
 
-- auth
-- bots / holder-maker / reaction-maker
-- token creator
-- token burns / token creations
-- liquidity pools / liquidity actions
-- metadata / IPFS
-- campaigns
-- wallet balance
-- referrals
+## Who This Is For
 
-It also works with proxied Solana RPC flows through backend endpoints for secure key handling.
+- Solana project founders launching new tokens.
+- Growth/operations teams managing post-launch activity.
+- Communities that need repeatable token + liquidity + automation workflows.
 
-## Security Posture (Frontend Side)
+## Suggested Next Docs to Add
 
-Frontend-side protections and safe patterns include:
-
-- route guarding for protected experiences
-- auth token/session handling via centralized utilities
-- security headers applied via middleware
-- wallet adapter-based signing flow (no private key handling in app code)
-- environment-variable based configuration (no hardcoded secrets)
-
-## Project Structure
-
-- `src/app` - Next.js App Router pages and layouts
-- `src/components` - UI components and layout system
-- `src/redux` - store, providers, and slices
-- `src/hooks` - reusable behavior hooks
-- `src/utils` - helpers, api wrappers, auth/session utilities
-- `src/config` - Solana/network/runtime configuration
-- `src/services` - service-layer modules
-- `public` - static assets and icons
-
-## Tech Stack
-
-- Next.js 15
-- React 18
-- Redux Toolkit + React Redux
-- Solana Web3 + Wallet Adapter stack
-- Axios
-- Tailwind CSS
-- Socket.io client
-- Firebase (notification/integration use cases)
-
-## Runtime Requirements
-
-- Node `>=18.17.0`
-- npm `>=9.0.0`
-
-## Local Development
-
-1. Install dependencies:
-   - `npm install`
-2. Add required environment variables in local env file.
-3. Start dev server:
-   - `npm run dev`
-4. Open app:
-   - `http://localhost:3000`
-
-## Scripts
-
-- `npm run dev` - start development server
-- `npm run build` - create production build
-- `npm run start` - run production server
-- `npm run lint` - run lint checks
-- `npm run rebuild` - rebuild dependencies
-
-## Product Intent
-
-IDX AutoBot Next frontend is designed to be the user-facing execution layer for token lifecycle and growth tooling.  
-It unifies creation, liquidity, automation, metadata, and authority actions into one consistent product experience.
+- Environment setup and required variables per project.
+- API map (frontend route -> backend endpoint).
+- Bot configuration playbooks (safe defaults, risk controls).
+- Incident and rollback runbook for production operations.
 
